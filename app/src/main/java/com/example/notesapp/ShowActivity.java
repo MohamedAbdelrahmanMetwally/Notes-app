@@ -10,7 +10,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.notesapp.core.database.Note;
+
 import java.util.List;
 public class ShowActivity extends AppCompatActivity {
     @Override

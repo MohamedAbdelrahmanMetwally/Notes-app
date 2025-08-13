@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.notesapp.core.database.Note;
 import com.google.android.material.button.MaterialButton;
 public class UpdateOrDelete extends AppCompatActivity {
     private EditText etIdUpdate, etTitleUpdate, etDescriptionUpdate;

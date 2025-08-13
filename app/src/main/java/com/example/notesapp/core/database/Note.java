@@ -1,4 +1,4 @@
-package com.example.notesapp;
+package com.example.notesapp.core.database;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
@@ -14,16 +14,21 @@ public class Note implements Parcelable {
     private String title;
     @ColumnInfo(name = "description")
     private String description;
+    @ColumnInfo(name = "timestamp")
+    private String timestamp;
     @Ignore
-    public Note() {}
-    public Note(String title, String description) {
+    public Note() {
+    }
+    public Note(String title, String description, String timestamp) {
         this.title = title;
         this.description = description;
+        this.timestamp = timestamp;
     }
     public Note(Parcel in) {
         id = in.readInt();
         title = in.readString();
         description = in.readString();
+        timestamp = in.readString();
     }
     public static final Creator<Note> CREATOR = new Creator<Note>() {
         @Override
@@ -35,12 +40,30 @@ public class Note implements Parcelable {
             return new Note[size];
         }
     };
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getTimestamp() {
+        return timestamp;
+    }
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
     @Override
     public boolean equals(@Nullable Object obj) {
         if (obj == this) return true;
@@ -48,11 +71,12 @@ public class Note implements Parcelable {
         Note note = (Note) obj;
         return note.id == this.id &&
                 java.util.Objects.equals(note.title, this.title) &&
-                java.util.Objects.equals(note.description, this.description);
+                java.util.Objects.equals(note.description, this.description)&&
+                java.util.Objects.equals(note.timestamp, this.timestamp);
     }
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(title, description, id);
+        return java.util.Objects.hash(title, description, id, timestamp);
     }
     @Override
     public String toString() {
@@ -60,7 +84,7 @@ public class Note implements Parcelable {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description +
-                '}';
+                ", timestamp='" + timestamp  +'}';
     }
     @Override
     public int describeContents() {
@@ -71,5 +95,6 @@ public class Note implements Parcelable {
         parcel.writeInt(id);
         parcel.writeString(title);
         parcel.writeString(description);
+        parcel.writeString(timestamp);
     }
 }

@@ -1,11 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
 }
-
 android {
     namespace = "com.example.notesapp"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.example.notesapp"
         minSdk = 24
@@ -15,7 +13,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -25,13 +22,23 @@ android {
             )
         }
     }
+    buildFeatures {
+        dataBinding = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
-
 dependencies {
+    // Lifecycle ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-runtime:2.8.4")
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.8.4")
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment:2.8.1")
+    implementation("androidx.navigation:navigation-ui:2.8.1")
     implementation ("androidx.room:room-runtime:2.6.1")
     annotationProcessor ("androidx.room:room-compiler:2.6.1")
     implementation(libs.appcompat)

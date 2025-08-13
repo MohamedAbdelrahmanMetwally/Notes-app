@@ -4,7 +4,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-import com.example.notesapp.Note;
+import com.example.notesapp.core.database.Note;
 import java.util.List;
 @Dao
 public interface NoteDao {
