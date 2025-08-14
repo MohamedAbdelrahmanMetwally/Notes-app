@@ -1,10 +1,8 @@
-package com.example.notesapp;
+package com.example.notesapp.core.database;
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
-import com.example.notesapp.core.database.Note;
 
 @Database(entities = {Note.class}, version = 1, exportSchema = false)
 public abstract class NoteDatabase extends RoomDatabase {

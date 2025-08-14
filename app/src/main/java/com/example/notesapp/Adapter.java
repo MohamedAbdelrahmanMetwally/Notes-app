@@ -54,7 +54,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvId = itemView.findViewById(R.id.tvId);
+            tvId = itemView.findViewById(R.id.tvDate);
             tvTitle = itemView.findViewById(R.id.tvtitle);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             cardView = itemView.findViewById(R.id.cv);

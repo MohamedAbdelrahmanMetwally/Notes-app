@@ -7,7 +7,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.notesapp.Main.ui.MainActivity;
 import com.example.notesapp.core.database.Note;
+import com.example.notesapp.core.database.NoteDatabase;
 import com.google.android.material.button.MaterialButton;
 public class UpdateOrDelete extends AppCompatActivity {
     private EditText etIdUpdate, etTitleUpdate, etDescriptionUpdate;
@@ -41,7 +43,7 @@ public class UpdateOrDelete extends AppCompatActivity {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-        Note note = new Note(title, description);
+        Note note = new Note(title, description,"");
         note.setId(Integer.parseInt(idText));
         db.noteDao().update(note);
         Toast.makeText(this, "Note updated successfully", Toast.LENGTH_SHORT).show();

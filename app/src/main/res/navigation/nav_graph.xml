@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_show">
+<fragment
+    android:id="@+id/navigation_show"
+    android:name="com.example.notesapp.Main.ui.ShowFragment"
+    >
+    <action
+        android:id="@+id/action_navigation_show_to_navigation_update"
+        app:destination="@id/navigation_update" />
+</fragment>
+    <fragment
+        android:id="@+id/navigation_update"
+        android:name="com.example.notesapp.Main.ui.UpdateFragemnt"
+        >
+        <argument
+            android:name="note"
+            app:argType="com.example.notesapp.core.database.Note" />
+        <action
+            android:id="@+id/action_navigation_update_to_navigation_show"
+            app:destination="@id/navigation_show" />
+    </fragment>
+</navigation>

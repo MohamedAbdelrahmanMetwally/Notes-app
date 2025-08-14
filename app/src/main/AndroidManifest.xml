@@ -22,7 +22,7 @@
             android:name=".AdditionActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Main.ui.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

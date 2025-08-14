@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.notesapp.core.database.Note;
+import com.example.notesapp.core.database.NoteDatabase;
 
 public class AdditionActivity extends AppCompatActivity {
     private EditText etTitle, etDescription;
@@ -43,7 +44,7 @@ public class AdditionActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please fill in both fields", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Note newNote = new Note(title, description);
+            Note newNote = new Note(title, description,"");
             NoteDatabase.getInstance(getApplicationContext()).noteDao().insert(newNote);
             Toast.makeText(this, "Note added successfully", Toast.LENGTH_SHORT).show();
             finish();

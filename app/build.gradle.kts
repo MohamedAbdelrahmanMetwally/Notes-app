@@ -1,6 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
+    id("androidx.navigation.safeargs")
 }
+
 android {
     namespace = "com.example.notesapp"
     compileSdk = 35
@@ -35,6 +37,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.4")
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.4")
     implementation("androidx.lifecycle:lifecycle-runtime:2.8.4")
+    implementation(libs.fragment)
     annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.8.4")
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment:2.8.1")

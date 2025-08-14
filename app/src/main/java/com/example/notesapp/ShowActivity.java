@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notesapp.core.database.Note;
+import com.example.notesapp.core.database.NoteDatabase;
 
 import java.util.List;
 public class ShowActivity extends AppCompatActivity {
