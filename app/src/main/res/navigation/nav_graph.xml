@@ -8,18 +8,21 @@
     android:name="com.example.notesapp.Main.ui.ShowFragment"
     >
     <action
-        android:id="@+id/action_navigation_show_to_navigation_update"
-        app:destination="@id/navigation_update" />
+        android:id="@+id/action_nav_graph_to_navigation_add_or_update"
+        app:destination="@id/navigation_add_or_update" />
 </fragment>
     <fragment
-        android:id="@+id/navigation_update"
-        android:name="com.example.notesapp.Main.ui.UpdateFragemnt"
+        android:id="@+id/navigation_add_or_update"
+        android:name="com.example.notesapp.Main.ui.AddOrUpdateFragemnt"
         >
         <argument
             android:name="note"
             app:argType="com.example.notesapp.core.database.Note" />
+        <argument
+            android:name="isUpdate"
+            app:argType="boolean" />
         <action
-            android:id="@+id/action_navigation_update_to_navigation_show"
+            android:id="@+id/action_nav_graph_to_navigation_show"
             app:destination="@id/navigation_show" />
     </fragment>
 </navigation>
