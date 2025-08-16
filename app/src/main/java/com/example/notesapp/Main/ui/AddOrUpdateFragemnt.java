@@ -43,6 +43,22 @@ public class AddOrUpdateFragemnt extends Fragment {
             binding.etTitle.setText(note.getTitle());
             binding.etDescriptionUpdate.setText(note.getDescription());
             binding.btnaddOrUpdate.setOnClickListener(v -> {
+                if(binding.etDate.getText().toString().isEmpty() || binding.etTitle.getText().toString().isEmpty() || binding.etDescriptionUpdate.getText().toString().isEmpty())
+                {
+                    if(binding.etDate.getText().toString().isEmpty()){
+                        binding.etDate.setError("Date is required");
+                        binding.etDate.requestFocus();
+                    }
+                    if(binding.etTitle.getText().toString().isEmpty()){
+                        binding.etTitle.setError("Title is required");
+                        binding.etTitle.requestFocus();
+                    }
+                    if(binding.etDescriptionUpdate.getText().toString().isEmpty()){
+                        binding.etDescriptionUpdate.setError("Description is required");
+                        binding.etDescriptionUpdate.requestFocus();
+                    }
+                    return;
+                }
                 note.setTimestamp(binding.etDate.getText().toString());
                 note.setTitle(binding.etTitle.getText().toString());
                 note.setDescription(binding.etDescriptionUpdate.getText().toString());
@@ -53,6 +69,22 @@ public class AddOrUpdateFragemnt extends Fragment {
         } else {
             binding.btnaddOrUpdate.setText("Add");
             binding.btnaddOrUpdate.setOnClickListener(v -> {
+                if(binding.etDate.getText().toString().isEmpty() || binding.etTitle.getText().toString().isEmpty() || binding.etDescriptionUpdate.getText().toString().isEmpty())
+                {
+                    if(binding.etDate.getText().toString().isEmpty()){
+                        binding.etDate.setError("Date is required");
+                        binding.etDate.requestFocus();
+                    }
+                    if(binding.etTitle.getText().toString().isEmpty()){
+                        binding.etTitle.setError("Title is required");
+                        binding.etTitle.requestFocus();
+                    }
+                    if(binding.etDescriptionUpdate.getText().toString().isEmpty()){
+                        binding.etDescriptionUpdate.setError("Description is required");
+                        binding.etDescriptionUpdate.requestFocus();
+                    }
+                    return;
+                }
                 notesViewModel.insert(new Note(binding.etTitle.getText().toString(), binding.etDescriptionUpdate.getText().toString(), binding.etDate.getText().toString()));
                 findNavController(view).navigate(R.id.action_nav_graph_to_navigation_show);
             });
