@@ -21,19 +21,41 @@ A simple **Android application** for managing notes (**Add ✏️ - View 👀 - 
 - **RecyclerView + CardView** – To display notes.
 - **Material Components** – For modern UI.
 - **ConstraintLayout** – For responsive layouts.
-
+- **MVVM architecture**
+- **Single activty multiple fragments**
 ---
-
-## 📂 Project Structure
-- `MainActivity.java` → Main menu (Add, View, Update/Delete options).
-- `AdditionActivity.java` → Add new notes.
-- `UpdateOrDelete.java` → Update or delete existing notes.
-- `ShowActivity.java` → Display notes in RecyclerView.
-- `Adapter.java` → RecyclerView adapter for binding note data.
-- `Note.java` → Note entity (Room Database).
-- `NoteDao.java` → Data access object for notes.
-- `NoteDatabase.java` → Room database instance.
-- `res/layout/` → XML layout files for activities and RecyclerView cards.
+```
+📂 Project Structure
+com.example.notesapp
+├── core
+│ └── database
+│ ├── Note.java
+│ ├── NoteDao.java
+│ └── NoteDatabase.java
+├── Main
+│ ├── ui
+│ │ ├── AddOrUpdateFragemnt.java
+│ │ ├── MainActivity.java
+│ │ └── ShowFragment.java
+│ ├── util
+│ │ ├── Adapter.java
+│ │ ├── FactoryViewModel.java
+│ │ └── Repository.java
+│ └── viewmodel
+│ └── NotesViewModel.java
+├── androidTest
+│ └── com.example.notesapp
+├── test
+│ └── com.example.notesapp
+├── java (generated)
+└── res
+├── drawable
+└── layout
+├── activity_main.xml
+├── card.xml
+├── fragment_add_or_update_fragemnt.xml
+└── fragment_show.xml
+```
 
 ---
 
@@ -47,7 +69,6 @@ A simple **Android application** for managing notes (**Add ✏️ - View 👀 - 
 
 ## 💡 Future Improvements
 - 🔍 Add search functionality for notes.
-- 📅 Add date & time to each note.
 - ☁️ Sync with Google Drive or Firebase.
 - 🌙 Implement dark mode.
 
